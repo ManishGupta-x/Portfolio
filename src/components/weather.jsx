@@ -1,6 +1,8 @@
 import { motion, useMotionValue, useTransform, useSpring } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
 
 const CardWrapper = styled.div`
   width: 100%;
@@ -60,12 +62,36 @@ const BottomContainer = styled.div`
   padding: 0 1rem;
 `;
 
+const image = "https://imgur.com/Ij2AJe1.gif";
+
+const Wrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Weather2 = styled(motion.div)`
+  width: auto;
+  height: 190px;
+  z-index: 99;
+  user-select: none;
+  margin-top: 2em;
+
+  img {
+    width: auto;
+    height: 100%;
+    user-select: none;
+  }
+`;
+
 export function Weather(props) {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
   const rotateX = useTransform(y, [-100, 100], [30, -30]);
   const rotateY = useTransform(x, [-100, 100], [-30, 30]);
- 
 
   return (
     <CardWrapper>
@@ -75,29 +101,44 @@ export function Weather(props) {
         dragElastic={0.16}
         dragConstraints={{ top: 0, left: 0, right: 0, bottom: 0 }}
         whileHover={{
-            scale: 1.1, 
-          transition: { duration: 0.09 },  
+          scale: 1.1,
+          transition: { duration: 0.09 },
         }}
         whileTap={{
-          cursor : "grabbing"
+          cursor: "grabbing",
         }}
       >
-       
-
         <TopContainer>
           <CircleWrapper>
             <Circle />
           </CircleWrapper>
-              </TopContainer>
-              <div className="mb-4 pl-4 font-Comfortaa text-xl text-[#fcf1c8] font-bold">
-                  <h1>GetWeather : A Weather App <br/> Get Cities Weather</h1>
-              </div>
-              <BottomContainer>
-              <motion.button className="text-amber-950 px-4 py-2 mt-4 mb-4 bg-[#FCF1C8] rounded-xl font-Madimi text-xl"
-                whileHover={{ scale: 0.95, transition: { duration: 0.2 } }}>
-            
+
+          <Wrapper>
+            <Weather2
+              style={{ x, y, rotateX, rotateY, z: 100000 }}
+              drag
+              dragElastic={0.12}
+              whileTap={{ cursor: "grabbing" }}
+            >
+              <img src={image} />
+            </Weather2>
+          </Wrapper>
+        </TopContainer>
+        <div className="mb-4 pl-4 font-Comfortaa text-xl text-[#fcf1c8] font-bold">
+          <h1>
+            GetWeather : A Weather App <br /> Get Cities Weather
+          </h1>
+        </div>
+        <BottomContainer>
+          <Link to="http://weatherapp-qjjc.onrender.com/" target="_blank"
+              rel="noopener noreferrer">
+            <motion.button
+              className="text-amber-950 px-4 py-2 mt-4 mb-4 bg-[#FCF1C8] rounded-xl font-Madimi text-xl"
+              whileHover={{ scale: 0.95, transition: { duration: 0.2 } }}
+            >
               View
-            </motion.button>       
+            </motion.button>
+          </Link>
         </BottomContainer>
       </CardContainer>
     </CardWrapper>

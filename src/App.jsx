@@ -108,7 +108,7 @@ const App = () => {
       <div className="bg-[#171212] h-[95vh] pt-60 pb-[30rem]">
         <Timeline />
         <ul
-          class="flex mt-10 ml-[7.2rem] text-3xl text-[#FCF1C8] font-Comfortaa"
+          class="flex mt-10 justify-center text-3xl text-[#FCF1C8] font-Comfortaa"
           data-aos="fade-in"
         >
           <li class="mr-[9rem]">2018</li>
@@ -170,7 +170,7 @@ const App = () => {
           <Weather />
         </div>
         <motion.button
-          className="text-amber-950 px-4 py-2 mt-32 mb-4 bg-[#FCF1C8] rounded-xl font-Madimi text-xl mx-[40rem] "
+          className="text-amber-950 px-4 py-2 mt-32 mb-4 bg-[#FCF1C8] rounded-xl font-Madimi text-xl flex justify-center mx-auto "
           whileHover={{ scale: 0.95, transition: { duration: 0.2 } }} // Add animation properties
         >
           View All Projects

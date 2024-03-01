@@ -90,7 +90,7 @@ const Timeline = () => {
   return (
     <>
       {timeline === null ? (
-        <h1 className="text-5xl font-protest-guerrilla  p-10 mx-[36rem] text-[#FCF1C8]" id="timeline">
+        <h1 className="flex justify-center items-center text-5xl font-protest-guerrilla  p-10  text-[#FCF1C8]" id="timeline">
           My Timeline
         </h1>
       ) : (
@@ -109,7 +109,7 @@ const Timeline = () => {
             
         </div>  
       )}
-      <div className="flex ml-[7rem] mt-[10rem] relative">
+      <div className="flex justify-center mt-[10rem] relative">
         <div className="flex items-center">
           {images.map((image, index) => (
             <React.Fragment key={index}>

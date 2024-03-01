@@ -1,6 +1,7 @@
 import { motion, useMotionValue, useTransform} from "framer-motion";
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 
 const CardWrapper = styled.div`
@@ -38,17 +39,12 @@ const CircleWrapper = styled.div`
   top: 0;
   left: 0;
   min-width: 100%;
+  z-index:5;
   min-height: 100%;
   overflow: hidden;
   border-top-right-radius: 22px;
 `;
-const CircleImage = styled.img`
-  width: 100%;
-  height: 100%;
-  object-fit: cover; 
-  border-radius: 50%;
 
-`;
 
 
 
@@ -69,8 +65,32 @@ const BottomContainer = styled.div`
   flex: 0.1;
   padding: 0 1rem;
 `;
+const image = "https://imgur.com/ftw22AT.png";
 
 
+const GuitarWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Guitar = styled(motion.div)`
+  width: auto;
+  height: 190px;
+  z-index: 99;
+  user-select: none;
+  margin-top: 2em;
+  margin-left: 2em;
+
+  img {
+    width: auto;
+    height: 100%;
+    user-select: none;
+  }
+`;
 
 
 export function Jarvis(props) {
@@ -96,22 +116,34 @@ export function Jarvis(props) {
       >
         <TopContainer>
           <CircleWrapper>
-            <Circle >
-
-            {/* <CircleImage src="https://imgur.com/GH9lW7x.png" alt="Circle Image" /> */}
-            </Circle>
+            <Circle />
           </CircleWrapper>
          
+          <GuitarWrapper>
+            <Guitar
+              
+              style={{ x, y, rotateX, rotateY, z: 100000 }}
+              drag
+              dragElastic={0.12}
+              whileTap={{ cursor: "grabbing" }}
+            >
+              <img src={image} />
+            </Guitar>
+          </GuitarWrapper>
         </TopContainer>
         <div className="mb-4 pl-4 font-Comfortaa text-xl text-[#fcf1c8] font-bold">
                   <h1>Jarvis : A Music Streaming <br/> Service</h1>
               </div>
         <BottomContainer> 
-          <motion.button className="text-amber-950 px-4 py-2 mt-4 mb-4 bg-[#FCF1C8] rounded-xl font-Madimi text-xl"
-          whileHover={{ scale: 0.95, transition: { duration: 0.2 } }}>
-            
+        <Link to="https://github.com/ManishGupta-x/Jarvis" target="_blank"
+              rel="noopener noreferrer" >
+            <motion.button
+              className="text-amber-950 px-4 py-2 mt-4 mb-4 bg-[#FCF1C8] rounded-xl font-Madimi text-xl"
+              whileHover={{ scale: 0.95, transition: { duration: 0.2 } }}
+            >
               View
             </motion.button>
+          </Link>
         </BottomContainer>
       </CardContainer>
     </CardWrapper>

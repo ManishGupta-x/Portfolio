@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-
 import { SlSocialGithub } from "react-icons/sl";
 import { SiVisualstudiocode } from "react-icons/si";
 import { motion } from "framer-motion";
@@ -60,7 +59,7 @@ export const Header = () => {
           className={`fixed z-50 ${
             scrolling
               ? "bg-[#fcf1c8] text-[#171212] border-black"
-              : "bg-[#171212] text-[#fcf1c8] border hover:bg-[#fcf1c8] hover:text-[#171212]"
+              : "bg-[#171212] text-[#fcf1c8] border "
           }  rounded-xl mt-4 left-1/2 transform -translate-x-1/2 px-4 `}
         >
           <ul
@@ -68,7 +67,10 @@ export const Header = () => {
               scrolling ? "font-protest-guerrilla px-6" : "font-RubikM "
             }`}
           >
-            <li className="mx-2 py-5 cursor-pointer">
+            <motion.li className="mx-2 py-5 cursor-pointer"
+            
+              whileHover={{ scale: 1.17, transition: { duration: 0.2 } }}
+            >
               <ScrollLink
                 to="timeline" // Replace with the ID of your target section
                 spy={true}
@@ -78,20 +80,22 @@ export const Header = () => {
               >
                 Timeline
               </ScrollLink>
-            </li>
+            </motion.li>
             <RouterLink
               to="https://resumemanish.tiiny.site/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <li className="mx-2 py-5 hover:underline cursor-pointer ">
+              <motion.li className="mx-2 py-5 cursor-pointer"
+               whileHover={{ scale: 1.17, transition: { duration: 0.2 } }}>
                 Resume
-              </li>
+              </motion.li>
               
             </RouterLink>
-            <li
+            <motion.li
               className="mx-2 py-5  cursor-pointer  "
               onClick={() => scrollTo(3800)}
+              whileHover={{ scale: 1.17, transition: { duration: 0.2 } }}
             >
               <ScrollLink
                 to="connect" // Replace with the ID of your target section
@@ -102,7 +106,7 @@ export const Header = () => {
               >
                 Connect
               </ScrollLink>
-            </li>
+            </motion.li>
           </ul>
         </div>
         <div className="w-12 h-12 flex items-center justify-center bg-[#fcf1c8] rounded-full m-6 hover:animate-spin-slow">

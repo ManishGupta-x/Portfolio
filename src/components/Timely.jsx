@@ -1,6 +1,8 @@
 import { motion, useMotionValue, useTransform } from "framer-motion";
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
+
 
 
 const CardWrapper = styled.div`
@@ -30,6 +32,7 @@ const Circle = styled.div`
   height: 280px;
   top: -4.2em;
   right: -10em;
+
   z-index: 5;
   background-color: #A07D54 ;
   border-radius: 50%;
@@ -63,6 +66,33 @@ const BottomContainer = styled.div`
   padding: 0 1rem;
 `;
 
+const image = "https://imgur.com/ycjlygp.gif";
+
+
+const TimelyWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+const Timelyimg = styled(motion.div)`
+  width: auto;
+  height: 190px;
+  z-index: 99;
+  user-select: none;
+  margin-top: 2em;
+
+
+  img {
+    width: auto;
+    height: 100%;
+    user-select: none;
+  }
+`;
+
 
 
 
@@ -92,17 +122,30 @@ export function Timely(props) {
           <CircleWrapper>
             <Circle />
           </CircleWrapper>
-         
+          <TimelyWrapper>
+            <Timelyimg
+              style={{ x, y, rotateX, rotateY, z: 100000 }}
+              drag
+              dragElastic={0.12}
+              whileTap={{ cursor: "grabbing" }}
+            >
+              <img src={image} />
+            </Timelyimg>
+          </TimelyWrapper>
               </TopContainer>
               <div className="mb-4 pl-4 font-Comfortaa text-xl text-[#fcf1c8] font-bold">
                   <h1>Timely : A Auto Scheduler <br/> Master Your Day</h1>
               </div>
         <BottomContainer> 
-        <motion.button className="text-amber-950 px-4 py-2 mt-4 mb-4 bg-[#FCF1C8] rounded-xl font-Madimi text-xl"
-          whileHover={{ scale: 0.95, transition: { duration: 0.2 } }}>
-            
+        <Link to="https://timely-qcpg.vercel.app/" target="_blank"
+              rel="noopener noreferrer">
+            <motion.button
+              className="text-amber-950 px-4 py-2 mt-4 mb-4 bg-[#FCF1C8] rounded-xl font-Madimi text-xl"
+              whileHover={{ scale: 0.95, transition: { duration: 0.2 } }}
+            >
               View
             </motion.button>
+          </Link>
         </BottomContainer>
       </CardContainer>
     </CardWrapper>
