@@ -97,7 +97,7 @@ export const Header = () => {
                 to="connect" // Replace with the ID of your target section
                 spy={true}
                 smooth={true}
-                duration={2000}
+                duration={500}
                 offset={-250}
               >
                 Connect
