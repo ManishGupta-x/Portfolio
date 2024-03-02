@@ -65,7 +65,7 @@ const BottomContainer = styled.div`
   flex: 0.1;
   padding: 0 1rem;
 `;
-const image = "https://imgur.com/ftw22AT.png";
+const image = "https://imgur.com/U1rjRiu.png";
 
 
 const GuitarWrapper = styled.div`
