@@ -21,7 +21,7 @@ export const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollTop = window.pageYOffset;
-      const scrollThreshold = 50; // Adjust this threshold as needed
+      const scrollThreshold = 50; 
 
       if (scrollTop > scrollThreshold) {
         setScrolling(true);
@@ -39,9 +39,9 @@ export const Header = () => {
 
   const scrollTo = (value) => {
     useScroll().scrollTo(value, {
-      smooth: true, // Enable smooth scrolling
-      duration: 500, // Adjust duration for scrolling speed (milliseconds)
-      delay: 0, // Adjust delay before starting scroll (milliseconds)
+      smooth: true, 
+      duration: 500,
+      delay: 0, 
     });
   };
 
@@ -72,7 +72,7 @@ export const Header = () => {
               whileHover={{ scale: 1.17, transition: { duration: 0.2 } }}
             >
               <ScrollLink
-                to="timeline" // Replace with the ID of your target section
+                to="timeline" 
                 spy={true}
                 smooth={true}
                 duration={2000}
@@ -82,7 +82,7 @@ export const Header = () => {
               </ScrollLink>
             </motion.li>
             <RouterLink
-              to="https://resumemanish.tiiny.site/"
+              to="https://drive.google.com/file/d/1FkUTm2NArCqia5dUO-eCqpzAkKOydHEf/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -98,7 +98,7 @@ export const Header = () => {
               whileHover={{ scale: 1.17, transition: { duration: 0.2 } }}
             >
               <ScrollLink
-                to="connect" // Replace with the ID of your target section
+                to="connect" 
                 spy={true}
                 smooth={true}
                 duration={1500}
